@@ -4,6 +4,18 @@
 
 Prova de Programação realizada em Python / Django.
 
+## Desenvolver
+
+1. Clone o projeto
+2. `python manage.py makemigrations`
+3. `python manage.py migrate`
+4. `python manage.py createsuperuser`
+5. `python manage.py runserver`
+6. Faça um commit e um pull request
+
+Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
+
+
 ## Tarefas
 
 ### Admin
