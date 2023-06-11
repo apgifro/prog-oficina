@@ -81,21 +81,21 @@
           </li>
 
           <li>
-            <a href="{% url 'mecanicos_list' %}" class="nav-link active">
+            <a href="{% url 'mecanicos_list' %}" class="nav-link {% if request.path == '/mecanicos/' %} active {% else %} link-body-emphasis {% endif %}"">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#wrench"/></svg>
               Mecânicos
             </a>
           </li>
 
           <li>
-            <a href="{% url 'equipes_list' %}" class="nav-link link-body-emphasis">
+            <a href="{% url 'equipes_list' %}" class="nav-link {% if request.path == '/equipes/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#team"/></svg>
               Equipes
             </a>
           </li>
 
           <li>
-            <a href="{% url 'clientes_list' %}" class="nav-link link-body-emphasis {% if request.path == url %} active {% endif %}">
+            <a href="{% url 'clientes_list' %}" class="nav-link {% if request.path == '/clientes/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Clientes
             </a>

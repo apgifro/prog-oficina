@@ -26,3 +26,4 @@ class VeiculoAdmin(admin.ModelAdmin):
 @admin.register(OrdemDeServico)
 class OrdemDeServicoAdmin(admin.ModelAdmin):
     list_display = ['emitida', 'veiculo', 'entrega', 'total']
+    search_fields = ['veiculo__cliente__pessoa__nome']
