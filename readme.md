@@ -36,7 +36,7 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 
 - [x] Exibir Cliente
 - [x] Criar Cliente
-- [ ] Atualizar Cliente
+- [x] Atualizar Cliente
 - [ ] Excluir Cliente
 
 #### Mecânico
@@ -52,7 +52,7 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [ ] Criar Equipe
 - [ ] Atualizar Equipe
 - [ ] Excluir Equipe
-- 
+
 #### Peças
 
 - [ ] Exibir Peças
@@ -73,7 +73,7 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [ ] Criar Veículos
 - [ ] Atualizar Veículos
 - [ ] Excluir Veículos
-- 
+
 #### Ordem de Serviço
 
 - [ ] Exibir Ordem de Serviço
