@@ -23,21 +23,49 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [x] Criar projeto e apps
 - [x] Desenvolver `models.py` 
 - [x] Adicionar no `admin.py`
-- [ ] Adicionar funções como `search_fields` no `admin.py`
+- [x] Adicionar funções como `search_fields` no `admin.py`
 - [ ] Ajustes finos, como nome, do `admin.py`
 
-### Views
+### Views, urls e templates
 
-- [ ] Criar `views.py` para `pessoas`
-- [ ] Criar `views.py` para `ordens`
-
-### Templates
-
-- [ ] Ajustar `settings.py` para templates e arquivos estáticos
-- [ ] Adicionar `bootstrap`
+- [x] Ajustar `settings.py` para templates e arquivos estáticos
+- [x] Adicionar `bootstrap`
 - [ ] Criar uma página `index.html` com base em algum modelo `bootstrap`
-- [ ] Criar `templates` para `pessoas`
-- [ ] Criar `templates` para `ordens`
+
+- [x] Exibir Cliente
+- [x] Criar Cliente
+- [ ] Atualizar Cliente
+- [ ] Excluir Cliente
+
+- [x] Exibir Mecânico
+- [ ] Criar Mecânico
+- [ ] Atualizar Mecânico
+- [ ] Excluir Mecânico
+
+- [x] Exibir Equipe
+- [ ] Criar Equipe
+- [ ] Atualizar Equipe
+- [ ] Excluir Equipe
+
+- [ ] Exibir Peças
+- [ ] Criar Peças
+- [ ] Atualizar Peças
+- [ ] Excluir Peças
+
+- [ ] Exibir Serviços
+- [ ] Criar Serviços
+- [ ] Atualizar Serviços
+- [ ] Excluir Serviços
+
+- [ ] Exibir Veículos
+- [ ] Criar Veículos
+- [ ] Atualizar Veículos
+- [ ] Excluir Veículos
+
+- [ ] Exibir Ordem de Serviço
+- [ ] Criar Ordem de Serviço
+- [ ] Atualizar Ordem de Serviço
+- [ ] Excluir Ordem de Serviço
 
 ### Completo
 
