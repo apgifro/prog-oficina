@@ -1,32 +1,15 @@
 from django import forms
-from pessoas.models import Endereco, Pessoa, Cliente, Mecanico, Equipe
 
 
-class EnderecoForm(forms.ModelForm):
-    class Meta:
-        model = Endereco
-        fields = ''
+class ClienteForm(forms.Form):
 
+    nome = forms.CharField(max_length=255)
+    telefone = forms.CharField(max_length=15)
 
-class PessoaForm(forms.ModelForm):
-    class Meta:
-        model = Pessoa
-        fields = ''
-
-
-class ClienteForm(forms.ModelForm):
-    class Meta:
-        model = Cliente
-        fields = ''
-
-
-class MecanicoForm(forms.ModelForm):
-    class Meta:
-        model = Mecanico
-        fields = ''
-
-
-class EquipeForm(forms.ModelForm):
-    class Meta:
-        model = Equipe
-        fields = ''
+    cep = forms.IntegerField()
+    rua = forms.CharField(max_length=255)
+    bairro = forms.CharField(max_length=255)
+    numero = forms.IntegerField()
+    complemento = forms.CharField(max_length=255, required=False)
+    cidade = forms.CharField(max_length=255)
+    estado = forms.CharField(max_length=2)

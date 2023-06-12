@@ -9,6 +9,7 @@ class ItemAdmin(admin.ModelAdmin):
     search_fields = ['descricao']
     search_help_text = "Digite o nome do item para pesquisar"
 
+
 @admin.register(Servico)
 class ServicoAdmin(admin.ModelAdmin):
     list_display = ['item']
