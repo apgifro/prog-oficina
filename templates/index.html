@@ -10,7 +10,6 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </head>
 <body>
-
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="bootstrap" viewBox="0 0 118 94">
         <title>Bootstrap</title>
@@ -56,100 +55,82 @@
       </symbol>
     </svg>
 
-    <main class="d-flex flex-nowrap" style="overflow: auto; ">
-
-      <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sticky-top" style="width: 280px;">
-
-        <div>
-          <div class="d-flex mb-2 mt-4 ms-2">
-            <a href="{% url 'index' %}" class="fs-2 mt-1 fw-bold nav-link">Oficina</a>
-          </div>
-        </div>
-
-        <hr>
-
-
-        <ul class="nav nav-pills flex-column mb-auto">
-
-          <li>
-            <a href="{% url 'clientes_list' %}" class="nav-link {% if request.path == '/clientes/' %} active {% else %} link-body-emphasis {% endif %}">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-              Clientes
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'veiculos_list' %}" class="nav-link {% if request.path == '/veiculos/' %} active {% else %} link-body-emphasis {% endif %}">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#car"/></svg>
-              Veículos
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'ordem_list' %}" class="nav-link {% if request.path == '/ordens/' %} active {% else %} link-body-emphasis {% endif %}">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#orders"/></svg>
-              Ordens de Serviço
-            </a>
-          </li>
-
-          <hr>
-
-          <li class="nav-item">
-            <a href="{% url 'pecas_list' %}" class="nav-link {% if request.path == '/pecas/' %} active {% else %} link-body-emphasis {% endif %}" aria-current="page">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#engine"/></svg>
-              Peças
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'servicos_list' %}" class="nav-link {% if request.path == '/servicos/' %} active {% else %} link-body-emphasis {% endif %}">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-              Serviços
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'mecanicos_list' %}" class="nav-link {% if request.path == '/mecanicos/' %} active {% else %} link-body-emphasis {% endif %}">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#wrench"/></svg>
-              Mecânicos
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'equipes_list' %}" class="nav-link {% if request.path == '/equipes/' %} active {% else %} link-body-emphasis {% endif %}">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#team"/></svg>
-              Equipes
-            </a>
-          </li>
-
-          <hr>
-
-        </ul>
-
-
-        <div class="dropdown mx-auto">
-
-          <a href="#" class="d-flex align-items-center justify-content-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  <svg class="bi pe-none me-2" width="32" height="32"><use xlink:href="#people-circle"/></svg>
-            Usuário
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4 fw-bold">Oficina</span>
           </a>
 
-          <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">Sair</a></li>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link">Quem somos</a></li>
           </ul>
+    </header>
+  </div>
 
-        </div>
-
+    <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">E refez-se a manutenção automotiva.</h1>
+        <p class="lead text-muted">Nosso compromisso é fornecer soluções de software avançadas que impulsionem a produtividade e a eficiência da sua oficina automotiva, maximizando a rentabilidade a longo prazo.
+        </p>
+          <a href="{% url 'clientes_list' %}" class="btn btn-primary my-2">Criar conta</a>
+          <a href="{% url 'clientes_list' %}" class="btn btn-secondary my-2">Entrar</a>
+        </p>
       </div>
+    </div>
+    </section>
 
-      <div class="col mt-5 ms-5 me-5">
-        <div class="col">
-        {% block content %}
-        {% endblock content %}
+<div class="container px-4 py-5">
+    <hr>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+
+        <div>
+          <h2>Clientes</h2>
+<p>Permita que seus clientes agendem serviços de manutenção e reparo de forma rápida e fácil. Você pode gerenciar sua agenda, confirmar horários e enviar lembretes automáticos para reduzir as faltas e os atrasos.</p>
         </div>
-        <div class="invisible">space</div>
       </div>
+      <div class="col d-flex align-items-start">
 
-    </main>
+        <div>
+          <h2>Veículos</h2>
+<p>Seu carro é uma parte importante da sua vida. É por isso que nos esforçamos para fornecer o melhor serviço possível para mantê-lo funcionando sem problemas. De reparos simples a grandes projetos de restauração, nossa equipe está pronta para ajudar.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+
+        <div>
+          <h2>Ordens de Serviço</h2>
+<p>Nós entendemos que seu tempo é valioso. É por isso que oferecemos um processo fácil e eficiente para agendar serviços e reparos. Nossas ordens de serviço detalhadas garantem que você saiba exatamente o que esperar e quanto tempo levará para concluir o trabalho.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container px-4 py-5">
+    <hr>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+
+        <div>
+          <h2>Peças e Serviços</h2>
+<p>Tenha uma visão completa do seu estoque de peças e serviços oferecidos, com informações atualizadas sobre a quantidade, o custo e a localização de cada item</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+
+        <div>
+          <h2>Mecânicos</h2>
+<p>Nossos mecânicos são alguns dos melhores do negócio. Com anos de experiência e treinamento especializado, eles são capazes de lidar com qualquer problema que seu carro possa ter. Eles trabalham duro para garantir que seu veículo esteja sempre em ótimas condições.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+
+        <div>
+          <h2>Equipes</h2>
+<p>Nossa equipe altamente qualificada está pronta para atender às suas necessidades de reparo e manutenção de veículos. Com anos de experiência e treinamento especializado, nossos mecânicos são capazes de lidar com qualquer problema que seu carro possa ter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
