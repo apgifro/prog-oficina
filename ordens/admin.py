@@ -33,5 +33,5 @@ class VeiculoAdmin(admin.ModelAdmin):
 @admin.register(OrdemDeServico)
 class OrdemDeServicoAdmin(admin.ModelAdmin):
     list_display = ['emitida', 'veiculo', 'entrega', 'total']
-    search_fields = ['veiculo__placa','emitida']
+    search_fields = ['veiculo__placa', 'emitida']
     search_help_text = "Digite a placa do veículo ou data da ordem de serviço para pesquisar"

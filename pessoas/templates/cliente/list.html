@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="row mb-4 align-items-center">
+  <div class="col">
+    <strong class="fs-3">Clientes</strong>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-primary float-end">Adicionar</button>
+  </div>
+</div>
+
+{% if clientes|length > 0 %}
+
+<table class="table table-hover">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Rua</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">nº</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in clientes %}
+    <tr>
+      <td>{{ cliente.pessoa.nome }}</td>
+      <td>{{ cliente.telefone }}</td>
+      <td>{{ cliente.pessoa.endereco.rua }}</td>
+      <td>{{ cliente.pessoa.endereco.bairro }}</td>
+      <td>{{ cliente.pessoa.endereco.numero }}</td>
+      <td scope="col">
+        <div class="d-flex flex-row justify-content-end">
+
+          <a href="#" class="nav-link link-primary me-3" aria-current="page">
+            <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#pencil"/></svg>
+          </a>
+
+          <a href="#" class="nav-link link-danger" aria-current="page">
+            <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#delete"/></svg>
+          </a>
+
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+
+Sem clientes cadastrados.
+
+{% endif %}
+
+{% endblock content %}
