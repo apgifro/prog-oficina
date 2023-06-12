@@ -50,10 +50,17 @@
     <div class="mb-3">
         <input type="text" name="cidade" placeholder="Cidade" class="form-control">
     </div>
-
-    <div class="mb-5">
-        <input type="text" name="estado" placeholder="Estado" class="form-control">
-    </div>
+<div class="mb-5">
+    {{ form.estado.label_tag }}
+    {{ form.estado }}
+    {% if form.estado.errors %}
+        <div class="invalid-feedback">
+            {% for error in form.estado.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
 
     <div class="col-auto mbr-section-btn align-center">
         <button type="submit" class="btn btn-primary display-4">Enviar</button>
