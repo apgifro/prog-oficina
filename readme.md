@@ -32,35 +32,49 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [x] Adicionar `bootstrap`
 - [ ] Criar uma página `index.html` com base em algum modelo `bootstrap`
 
+#### Cliente
+
 - [x] Exibir Cliente
 - [x] Criar Cliente
 - [ ] Atualizar Cliente
 - [ ] Excluir Cliente
+
+#### Mecânico
 
 - [x] Exibir Mecânico
 - [ ] Criar Mecânico
 - [ ] Atualizar Mecânico
 - [ ] Excluir Mecânico
 
+#### Equipe
+
 - [x] Exibir Equipe
 - [ ] Criar Equipe
 - [ ] Atualizar Equipe
 - [ ] Excluir Equipe
+- 
+#### Peças
 
 - [ ] Exibir Peças
 - [ ] Criar Peças
 - [ ] Atualizar Peças
 - [ ] Excluir Peças
 
+#### Serviços
+
 - [ ] Exibir Serviços
 - [ ] Criar Serviços
 - [ ] Atualizar Serviços
 - [ ] Excluir Serviços
 
+#### Veículos
+
 - [ ] Exibir Veículos
 - [ ] Criar Veículos
 - [ ] Atualizar Veículos
 - [ ] Excluir Veículos
+- 
+#### Ordem de Serviço
 
 - [ ] Exibir Ordem de Serviço
 - [ ] Criar Ordem de Serviço
