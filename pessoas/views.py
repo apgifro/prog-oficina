@@ -117,7 +117,6 @@ class ClienteDeleteView(DeleteView):
     success_url = reverse_lazy("clientes_list")
 
 
-
 class MecanicoListView(ListView):
 
     model = Mecanico

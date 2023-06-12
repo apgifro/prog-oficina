@@ -37,7 +37,7 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [x] Exibir Cliente
 - [x] Criar Cliente
 - [x] Atualizar Cliente
-- [ ] Excluir Cliente
+- [x] Excluir Cliente
 
 #### Mecânico
 
