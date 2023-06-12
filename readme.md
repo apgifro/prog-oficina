@@ -4,6 +4,18 @@
 
 Prova de Programação realizada em Python / Django.
 
+## Imagens
+
+![](/readme/1.png)
+
+![](/readme/2.png)
+
+![](/readme/3.png)
+
+![](/readme/4.png)
+
+![](/readme/5.png)
+
 ## Desenvolver
 
 1. Clone o projeto
@@ -30,7 +42,7 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 
 - [x] Ajustar `settings.py` para templates e arquivos estáticos
 - [x] Adicionar `bootstrap`
-- [ ] Criar uma página `index.html` com base em algum modelo `bootstrap`
+- [x] Criar uma página `index.html` com base em algum modelo `bootstrap`
 
 #### Cliente
 
