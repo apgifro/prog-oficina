@@ -12,34 +12,30 @@
 
 <div class="row mb-4 align-items-center">
   <div class="col">
-    <strong class="fs-3">Mecânicos</strong>
+    <strong class="fs-3">Peças</strong>
   </div>
   <div class="col">
-    <button type="button" class="btn btn-primary float-end">Adicionar</button>
+    <a href="#" class="btn btn-primary float-end">
+      Adicionar</a>
+    </a>
   </div>
 </div>
 
-{% if mecanicos|length > 0 %}
+{% if pecas|length > 0 %}
 
 <table class="table table-hover">
   <thead class="table-light">
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Especialidade</th>
-      <th scope="col">Rua</th>
-      <th scope="col">Bairro</th>
-      <th scope="col">nº</th>
+      <th scope="col">Preço</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    {% for mecanico in mecanicos %}
+    {% for peca in pecas %}
     <tr>
-      <td>{{ mecanico.pessoa.nome }}</td>
-      <td>{{ mecanico.especialidade }}</td>
-      <td>{{ mecanico.pessoa.endereco.rua }}</td>
-      <td>{{ mecanico.pessoa.endereco.bairro }}</td>
-      <td>{{ mecanico.pessoa.endereco.numero }}</td>
+      <td>{{ peca.item.descricao }}</td>
+      <td>{{ peca.item.preco }}</td>
       <td scope="col">
         <div class="d-flex flex-row justify-content-end">
 
@@ -61,7 +57,7 @@
 
 {% else %}
 
-Sem mecânicos cadastrados.
+Sem peças cadastradas.
 
 {% endif %}
 

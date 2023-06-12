@@ -12,35 +12,25 @@
 
 <div class="row mb-4 align-items-center">
   <div class="col">
-    <strong class="fs-3">Mecânicos</strong>
+    <strong class="fs-3">Ordens de Serviço</strong>
   </div>
   <div class="col">
     <button type="button" class="btn btn-primary float-end">Adicionar</button>
   </div>
 </div>
 
-{% if mecanicos|length > 0 %}
+{% if ordens|length > 0 %}
 
-<table class="table table-hover">
+{% for ordem in ordens %}
+<table class="table table-hover mb-4">
   <thead class="table-light">
     <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Especialidade</th>
-      <th scope="col">Rua</th>
-      <th scope="col">Bairro</th>
-      <th scope="col">nº</th>
+
+      <th scope="col">nº {{ ordem.id }}</th>
+      <th scope="col">{{ ordem.veiculo.descricao }} de {{ ordem.veiculo.cliente.pessoa.nome }}</th>
+      <th scope="col">Preço</th>
       <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for mecanico in mecanicos %}
-    <tr>
-      <td>{{ mecanico.pessoa.nome }}</td>
-      <td>{{ mecanico.especialidade }}</td>
-      <td>{{ mecanico.pessoa.endereco.rua }}</td>
-      <td>{{ mecanico.pessoa.endereco.bairro }}</td>
-      <td>{{ mecanico.pessoa.endereco.numero }}</td>
-      <td scope="col">
+      <th scope="col">
         <div class="d-flex flex-row justify-content-end">
 
           <a href="#" class="nav-link link-primary me-3" aria-current="page">
@@ -50,18 +40,40 @@
           <a href="#" class="nav-link link-danger" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#delete"/></svg>
           </a>
-
         </div>
-      </td>
+      </th>
+
     </tr>
+  </thead>
+  <tbody>
+    {% for item in ordem.itens.all %}
+      <tr>
+        <td>{{ item.descricao }}</td>
+        <td></td>
+        <td>{{ item.preco }}</td>
+        <td></td>
+        <td></td>
+      </tr>
     {% endfor %}
 
   </tbody>
+  <tfoot class="table-light">
+    <tr>
+      <td>
+        Emitida em {{ ordem.emitida }}
+      </td>
+      <td>Entregue em {{ ordem.entrega }}</td>
+      <td>{{ ordem.total }}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tfoot>
 </table>
+{% endfor %}
 
 {% else %}
 
-Sem mecânicos cadastrados.
+Sem ordens de serviço cadastradas.
 
 {% endif %}
 

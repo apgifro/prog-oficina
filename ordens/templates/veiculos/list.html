@@ -12,34 +12,34 @@
 
 <div class="row mb-4 align-items-center">
   <div class="col">
-    <strong class="fs-3">Mecânicos</strong>
+    <strong class="fs-3">Veículos</strong>
   </div>
   <div class="col">
-    <button type="button" class="btn btn-primary float-end">Adicionar</button>
+    <a href="#" class="btn btn-primary float-end">
+      Adicionar</a>
+    </a>
   </div>
 </div>
 
-{% if mecanicos|length > 0 %}
+{% if veiculos|length > 0 %}
 
 <table class="table table-hover">
   <thead class="table-light">
     <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Especialidade</th>
-      <th scope="col">Rua</th>
-      <th scope="col">Bairro</th>
-      <th scope="col">nº</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Equipe</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    {% for mecanico in mecanicos %}
+    {% for veiculo in veiculos %}
     <tr>
-      <td>{{ mecanico.pessoa.nome }}</td>
-      <td>{{ mecanico.especialidade }}</td>
-      <td>{{ mecanico.pessoa.endereco.rua }}</td>
-      <td>{{ mecanico.pessoa.endereco.bairro }}</td>
-      <td>{{ mecanico.pessoa.endereco.numero }}</td>
+      <td>{{ veiculo.placa }}</td>
+      <td>{{ veiculo.descricao }}</td>
+      <td>{{ veiculo.cliente.pessoa.nome }}</td>
+      <td>{{ veiculo.equipe.descricao }}</td>
       <td scope="col">
         <div class="d-flex flex-row justify-content-end">
 
@@ -61,7 +61,7 @@
 
 {% else %}
 
-Sem mecânicos cadastrados.
+Sem veículos cadastrados.
 
 {% endif %}
 

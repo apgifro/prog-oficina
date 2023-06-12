@@ -19,37 +19,55 @@
 <form action="" method="post">
     {% csrf_token %}
 
+    <p class="fw-bold">Nome</p>
+
     <div class="mb-3">
         <input type="text" name="nome" placeholder="Nome" class="form-control" value="{{ cliente.pessoa.nome }}">
     </div>
+
+    <p class="fw-bold">Telefone</p>
 
     <div class="mb-3">
         <input type="text" name="telefone" placeholder="Telefone" class="form-control" value="{{ cliente.telefone }}">
     </div>
 
+    <p class="fw-bold">CEP</p>
+
     <div class="mb-3">
         <input type="text" name="cep" placeholder="CEP" class="form-control" value="{{ cliente.pessoa.endereco.cep }}">
     </div>
 
+    <p class="fw-bold">Rua</p>
+
     <div class="mb-3">
-        <input type="text" name="rua" placeholder="Rua" class="form-control" value="{{ cliente.pessoa.endereco.numero }}">
+        <input type="text" name="rua" placeholder="Rua" class="form-control" value="{{ cliente.pessoa.endereco.rua }}">
     </div>
+
+    <p class="fw-bold">Bairro</p>
 
     <div class="mb-3">
         <input type="text" name="bairro" placeholder="Bairro" class="form-control" value="{{ cliente.pessoa.endereco.bairro }}">
     </div>
 
+    <p class="fw-bold">Número</p>
+
     <div class="mb-3">
         <input type="text" name="numero" placeholder="Número" class="form-control" value="{{ cliente.pessoa.endereco.numero }}">
     </div>
+
+    <p class="fw-bold">Complemento</p>
 
     <div class="mb-3">
         <input type="text" name="complemento" placeholder="Complemento" class="form-control" value="{{ cliente.pessoa.endereco.complemento }}">
     </div>
 
+    <p class="fw-bold">Cidade</p>
+
     <div class="mb-3">
         <input type="text" name="cidade" placeholder="Cidade" class="form-control" value="{{ cliente.pessoa.endereco.cidade }}">
     </div>
+
+    <p class="fw-bold">Estado</p>
 
     <div class="mb-5">
         <input type="text" name="estado" placeholder="Estado" class="form-control" value="{{ cliente.pessoa.endereco.estado }}">

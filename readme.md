@@ -55,28 +55,28 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 
 #### Peças
 
-- [ ] Exibir Peças
+- [x] Exibir Peças
 - [ ] Criar Peças
 - [ ] Atualizar Peças
 - [ ] Excluir Peças
 
 #### Serviços
 
-- [ ] Exibir Serviços
+- [x] Exibir Serviços
 - [ ] Criar Serviços
 - [ ] Atualizar Serviços
 - [ ] Excluir Serviços
 
 #### Veículos
 
-- [ ] Exibir Veículos
+- [x] Exibir Veículos
 - [ ] Criar Veículos
 - [ ] Atualizar Veículos
 - [ ] Excluir Veículos
 
 #### Ordem de Serviço
 
-- [ ] Exibir Ordem de Serviço
+- [x] Exibir Ordem de Serviço
 - [ ] Criar Ordem de Serviço
 - [ ] Atualizar Ordem de Serviço
 - [ ] Excluir Ordem de Serviço

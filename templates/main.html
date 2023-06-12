@@ -56,35 +56,37 @@
       </symbol>
     </svg>
 
-    <main class="d-flex flex-nowrap ">
+    <main class="d-flex flex-nowrap" style="overflow: auto; ">
 
-      <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+      <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sticky-top" style="width: 280px;">
 
-<!--        <div>-->
-<!--          <div class="d-flex mb-3 mt-4 ms-2">-->
-<!--            <strong class="fs-2 mt-1">Oficina</strong>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div>
+          <div class="d-flex mb-2 mt-4 ms-2">
+            <strong class="fs-2 mt-1">Oficina</strong>
+          </div>
+        </div>
+
+        <hr>
 
 
         <ul class="nav nav-pills flex-column mb-auto">
 
           <li class="nav-item">
-            <a href="#" class="nav-link link-body-emphasis" aria-current="page">
+            <a href="{% url 'pecas_list' %}" class="nav-link {% if request.path == '/pecas/' %} active {% else %} link-body-emphasis {% endif %}" aria-current="page">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#engine"/></svg>
               Peças
             </a>
           </li>
 
           <li>
-            <a href="#" class="nav-link link-body-emphasis">
+            <a href="{% url 'servicos_list' %}" class="nav-link {% if request.path == '/servicos/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
               Serviços
             </a>
           </li>
 
           <li>
-            <a href="{% url 'mecanicos_list' %}" class="nav-link {% if request.path == '/mecanicos/' %} active {% else %} link-body-emphasis {% endif %}"">
+            <a href="{% url 'mecanicos_list' %}" class="nav-link {% if request.path == '/mecanicos/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#wrench"/></svg>
               Mecânicos
             </a>
@@ -97,6 +99,8 @@
             </a>
           </li>
 
+          <hr>
+
           <li>
             <a href="{% url 'clientes_list' %}" class="nav-link {% if request.path == '/clientes/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
@@ -105,26 +109,29 @@
           </li>
 
           <li>
-            <a href="#" class="nav-link link-body-emphasis">
+            <a href="{% url 'veiculos_list' %}" class="nav-link {% if request.path == '/veiculos/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#car"/></svg>
               Veículos
             </a>
           </li>
 
           <li>
-            <a href="#" class="nav-link link-body-emphasis">
+            <a href="{% url 'ordem_list' %}" class="nav-link {% if request.path == '/ordens/' %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#orders"/></svg>
               Ordens de Serviço
             </a>
           </li>
 
+          <hr>
+
         </ul>
+
 
         <div class="dropdown mx-auto">
 
           <a href="#" class="d-flex align-items-center justify-content-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   <svg class="bi pe-none me-2" width="32" height="32"><use xlink:href="#people-circle"/></svg>
-            Alexandre
+            Usuário
           </a>
 
           <ul class="dropdown-menu text-small shadow">
@@ -140,6 +147,7 @@
         {% block content %}
         {% endblock content %}
         </div>
+        <div class="invisible">space</div>
       </div>
 
     </main>
