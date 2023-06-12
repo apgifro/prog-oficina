@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import FormView
+from django.views.generic import FormView, DeleteView
 
 from django.views.generic.list import ListView
 
@@ -7,15 +7,6 @@ from pessoas.forms import ClienteForm
 from pessoas.models import Cliente, Mecanico, Equipe, Pessoa, Endereco
 
 from django.contrib import messages
-
-
-class ClienteListView(ListView):
-
-    model = Cliente
-    ordering = ['-pessoa_id']
-    context_object_name = 'clientes'
-    template_name = 'cliente/list.html'
-    paginate_by = 10
 
 
 class ClienteCreateView(FormView):
@@ -51,6 +42,15 @@ class ClienteCreateView(FormView):
         messages.error(self.request, 'Erro ao cadastrar o cliente.')
         print(form.errors)
         return super().form_invalid(form)
+
+
+class ClienteReadView(ListView):
+
+    model = Cliente
+    ordering = ['-pessoa_id']
+    context_object_name = 'clientes'
+    template_name = 'cliente/list.html'
+    paginate_by = 10
 
 
 class ClienteUpdateView(FormView):
@@ -109,6 +109,13 @@ class ClienteUpdateView(FormView):
         messages.error(self.request, 'Erro ao atualizar o cliente.')
         print(form.errors)
         return super().form_invalid(form)
+
+
+class ClienteDeleteView(DeleteView):
+    model = Cliente
+    template_name = 'cliente/delete.html'
+    success_url = reverse_lazy("clientes_list")
+
 
 
 class MecanicoListView(ListView):
