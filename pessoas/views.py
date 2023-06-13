@@ -58,16 +58,17 @@ class ClienteUpdateView(FormView):
     template_name = 'cliente/edit.html'
     success_url = '/clientes/'
 
-    def get_post(self, id_post):
+    def get_cliente(self, id_post):
         try:
             return Cliente.objects.get(pk=id_post)
         except Cliente.DoesNotExist:
-            messages.error(self.request, 'O post não existe!')
+            messages.error(self.request, 'O cliente não existe!')
             reverse_lazy('clientes_list')
 
     def get_context_data(self, **kwargs):
         context = super(ClienteUpdateView, self).get_context_data(**kwargs)
-        context['cliente'] = self.get_post(self.kwargs['pk'])
+        context['cliente'] = self.get_cliente(self.kwargs['pk'])
+        self.initial['estado'] = context['cliente'].pessoa.endereco.estado # BUG
         return context
 
     def form_valid(self, form):

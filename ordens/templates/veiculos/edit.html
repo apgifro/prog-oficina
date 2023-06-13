@@ -10,14 +10,14 @@
 
 <div class="row mb-4 align-items-center">
     <div class="col">
-        <strong class="fs-3">Atualizar Veículo</strong>
+        <strong class="fs-3">Atualizar</strong>
     </div>
 </div>
 
 <form method="post">
     {% csrf_token %}
 
-    <div class="mb-3">
+    <div class="">
         {{ form.placa.label_tag }}
         {{ form.placa }}
         {% if form.placa.errors %}
@@ -29,7 +29,7 @@
         {% endif %}
     </div>
 
-    <div class="mb-3">
+    <div>
         {{ form.descricao.label_tag }}
         {{ form.descricao }}
         {% if form.descricao.errors %}
@@ -41,7 +41,7 @@
         {% endif %}
     </div>
 
-    <div class="mb-3">
+    <div>
         {{ form.cliente.label_tag }}
         {{ form.cliente }}
         {% if form.cliente.errors %}
@@ -53,7 +53,7 @@
         {% endif %}
     </div>
 
-    <div class="mb-3">
+    <div>
         {{ form.equipe.label_tag }}
         {{ form.equipe }}
         {% if form.equipe.errors %}

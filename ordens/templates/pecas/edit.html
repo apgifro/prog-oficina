@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+          {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="row mb-4 align-items-center">
+  <div class="col">
+    <strong class="fs-3">Atualizar</strong>
+  </div>
+</div>
+
+<form action="" method="post">
+    {% csrf_token %}
+    
+    <div class="mb-4">
+        <label>Nome:</label>
+        <input type="text" name="descricao" class="form-control" value="{{ peca.item.descricao }}">
+    </div>
+
+    <div class="mb-4">
+        <label>Preço:</label>
+        <input type="text" name="preco" class="form-control" value="{{ peca.item.preco }}">
+    </div>
+
+    <div class="col-auto mbr-section-btn align-center">
+        <button type="submit" class="btn btn-primary display-4">Enviar</button>
+    </div>
+
+</form>
+
+{% endblock content %}

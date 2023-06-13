@@ -68,23 +68,23 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 #### Peças
 
 - [x] Exibir Peças
-- [ ] Criar Peças
-- [ ] Atualizar Peças
-- [ ] Excluir Peças
+- [x] Criar Peças
+- [x] Atualizar Peças
+- [x] Excluir Peças
 
 #### Serviços
 
 - [x] Exibir Serviços
-- [ ] Criar Serviços
-- [ ] Atualizar Serviços
-- [ ] Excluir Serviços
+- [x] Criar Serviços
+- [x] Atualizar Serviços
+- [x] Excluir Serviços
 
 #### Veículos
 
 - [x] Exibir Veículos
-- [ ] Criar Veículos
-- [ ] Atualizar Veículos
-- [ ] Excluir Veículos
+- [x] Criar Veículos
+- [x] Atualizar Veículos
+- [x] Excluir Veículos
 
 #### Ordem de Serviço
 

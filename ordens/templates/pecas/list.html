@@ -15,7 +15,7 @@
     <strong class="fs-3">Peças</strong>
   </div>
   <div class="col">
-    <a href="#" class="btn btn-primary float-end">
+    <a href="{% url 'pecas_criar' %}" class="btn btn-primary float-end">
       Adicionar</a>
     </a>
   </div>
@@ -39,11 +39,11 @@
       <td scope="col">
         <div class="d-flex flex-row justify-content-end">
 
-          <a href="#" class="nav-link link-primary me-3" aria-current="page">
+          <a href="{% url 'pecas_atualizar' peca.pk %}" class="nav-link link-primary me-3" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#pencil"/></svg>
           </a>
 
-          <a href="#" class="nav-link link-danger" aria-current="page">
+          <a href="{% url 'pecas_excluir' peca.pk %}" class="nav-link link-danger" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#delete"/></svg>
           </a>
 

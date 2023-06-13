@@ -72,21 +72,21 @@
         <ul class="nav nav-pills flex-column mb-auto">
 
           <li>
-            <a href="{% url 'clientes_list' %}" class="nav-link {% if request.path == '/clientes/' %} active {% else %} link-body-emphasis {% endif %}">
+            <a href="{% url 'clientes_list' %}" class="nav-link {% if 'clientes' in request.path %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
               Clientes
             </a>
           </li>
 
           <li>
-            <a href="{% url 'veiculos_list' %}" class="nav-link {% if request.path == '/veiculos/' %} active {% else %} link-body-emphasis {% endif %}">
+            <a href="{% url 'veiculos_list' %}" class="nav-link {% if 'veiculos' in request.path %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#car"/></svg>
               Veículos
             </a>
           </li>
 
           <li>
-            <a href="{% url 'ordem_list' %}" class="nav-link {% if request.path == '/ordens/' %} active {% else %} link-body-emphasis {% endif %}">
+            <a href="{% url 'ordem_list' %}" class="nav-link {% if 'ordens' in request.path %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#orders"/></svg>
               Ordens de Serviço
             </a>
@@ -95,28 +95,28 @@
           <hr>
 
           <li class="nav-item">
-            <a href="{% url 'pecas_list' %}" class="nav-link {% if request.path == '/pecas/' %} active {% else %} link-body-emphasis {% endif %}" aria-current="page">
+            <a href="{% url 'pecas_list' %}" class="nav-link {% if 'pecas' in request.path %} active {% else %} link-body-emphasis {% endif %}" aria-current="page">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#engine"/></svg>
               Peças
             </a>
           </li>
 
           <li>
-            <a href="{% url 'servicos_list' %}" class="nav-link {% if request.path == '/servicos/' %} active {% else %} link-body-emphasis {% endif %}">
+            <a href="{% url 'servicos_list' %}" class="nav-link {% if 'servicos' in request.path %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
               Serviços
             </a>
           </li>
 
           <li>
-            <a href="{% url 'mecanicos_list' %}" class="nav-link {% if request.path == '/mecanicos/' %} active {% else %} link-body-emphasis {% endif %}">
+            <a href="{% url 'mecanicos_list' %}" class="nav-link {% if 'mecanicos' in request.path %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#wrench"/></svg>
               Mecânicos
             </a>
           </li>
 
           <li>
-            <a href="{% url 'equipes_list' %}" class="nav-link {% if request.path == '/equipes/' %} active {% else %} link-body-emphasis {% endif %}">
+            <a href="{% url 'equipes_list' %}" class="nav-link {% if 'equipes' in request.path %} active {% else %} link-body-emphasis {% endif %}">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#team"/></svg>
               Equipes
             </a>

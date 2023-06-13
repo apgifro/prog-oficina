@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="row mb-4 align-items-center">
+  <div class="col">
+    <strong class="fs-3">Excluir</strong>
+  </div>
+  <div class="col">
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger float-end">
+        Excluir</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
