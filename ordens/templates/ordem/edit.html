@@ -1,0 +1,76 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+          {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="row mb-4 align-items-center">
+  <div class="col">
+    <strong class="fs-3">Atualizar</strong>
+  </div>
+</div>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        {{ form.entrega.label_tag }}
+        {{ form.entrega }}
+        {% if form.descricao.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.descricao.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.veiculo.label_tag }}
+        {{ form.veiculo }}
+        {% if form.veiculo.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.veiculo.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.itens.label_tag }}
+        {{ form.itens }}
+        {% if form.itens.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.itens.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.total.label_tag }}
+        {{ form.total }}
+        {% if form.total.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.total.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="col-auto mbr-section-btn align-center">
+        <button type="submit" class="btn btn-primary display-4">Enviar</button>
+    </div>
+
+</form>
+
+{% endblock content %}

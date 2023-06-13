@@ -1,6 +1,6 @@
 from django import forms
 from pessoas.models import Cliente, Equipe
-from .models import Veiculo
+from .models import Veiculo, OrdemDeServico, Item
 
 
 class PecasForm(forms.Form):
@@ -31,3 +31,21 @@ class VeiculoForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['cliente'].queryset = Cliente.objects.all()
         self.fields['equipe'].queryset = Equipe.objects.all()
+
+
+class OrdemForm(forms.ModelForm):
+    class Meta:
+        model = OrdemDeServico
+        fields = ['entrega', 'veiculo', 'itens', 'total']
+        labels = {'veiculo': 'Veículos'}
+        widgets = {
+            'entrega': forms.SelectDateWidget(attrs={'class': 'form-control mb-4'}),
+            'veiculo': forms.Select(attrs={'class': 'form-control mb-4'}),
+            'itens': forms.SelectMultiple(attrs={'class': 'form-control mb-4'}),
+            'total': forms.TextInput(attrs={'class': 'form-control mb-4'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['veiculo'].queryset = Veiculo.objects.all()
+        self.fields['itens'].queryset = Item.objects.all()

@@ -15,7 +15,9 @@
     <strong class="fs-3">Ordens de Serviço</strong>
   </div>
   <div class="col">
-    <button type="button" class="btn btn-primary float-end">Adicionar</button>
+    <a href="{% url 'ordem_criar' %}" class="btn btn-primary float-end">
+      Adicionar</a>
+    </a>
   </div>
 </div>
 
@@ -26,18 +28,15 @@
   <thead class="table-light">
     <tr>
 
-      <th scope="col">nº {{ ordem.id }}</th>
-      <th scope="col">{{ ordem.veiculo.descricao }} de {{ ordem.veiculo.cliente.pessoa.nome }}</th>
-      <th scope="col">Preço</th>
-      <th scope="col"></th>
+      <th scope="col">nº {{ ordem.id }} </th>
       <th scope="col">
         <div class="d-flex flex-row justify-content-end">
 
-          <a href="#" class="nav-link link-primary me-3" aria-current="page">
+          <a href="{% url 'ordem_atualizar' ordem.pk %}" class="nav-link link-primary me-3" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#pencil"/></svg>
           </a>
 
-          <a href="#" class="nav-link link-danger" aria-current="page">
+          <a href="{% url 'ordem_excluir' ordem.pk %}" class="nav-link link-danger" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#delete"/></svg>
           </a>
         </div>
@@ -49,23 +48,17 @@
     {% for item in ordem.itens.all %}
       <tr>
         <td>{{ item.descricao }}</td>
-        <td></td>
-        <td>{{ item.preco }}</td>
-        <td></td>
-        <td></td>
+        <td class="text-end">R$ {{ item.preco }}</td>
       </tr>
     {% endfor %}
 
   </tbody>
-  <tfoot class="table-light">
+  <tfoot>
     <tr>
       <td>
-        Emitida em {{ ordem.emitida }}
+        {{ ordem.veiculo.descricao }} entregue em {{ ordem.entrega|date:"d/m" }} para {{ ordem.veiculo.cliente.pessoa.nome }}
       </td>
-      <td>Entregue em {{ ordem.entrega }}</td>
-      <td>{{ ordem.total }}</td>
-      <td></td>
-      <td></td>
+      <td class="text-end fw-bold">R$ {{ ordem.total }}</td>
     </tr>
   </tfoot>
 </table>

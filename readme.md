@@ -36,7 +36,6 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [x] Desenvolver `models.py` 
 - [x] Adicionar no `admin.py`
 - [x] Adicionar funções como `search_fields` no `admin.py`
-- [ ] Ajustes finos, como nome, do `admin.py`
 
 ### Views, urls e templates
 
@@ -89,13 +88,14 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 #### Ordem de Serviço
 
 - [x] Exibir Ordem de Serviço
-- [ ] Criar Ordem de Serviço
-- [ ] Atualizar Ordem de Serviço
-- [ ] Excluir Ordem de Serviço
+- [x] Criar Ordem de Serviço
+- [x] Atualizar Ordem de Serviço
+- [x] Excluir Ordem de Serviço
 
 
 ### Usuários
 
+- [] Ajustes finos, como nome, do `admin.py`
 - [] Implementar usuários e gerentes
 
 ### Completo

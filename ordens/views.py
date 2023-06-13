@@ -2,7 +2,7 @@ from ordens.models import Peca, Servico, Veiculo, OrdemDeServico, Item
 
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView
-from .forms import VeiculoForm, PecasForm, ServicosForm
+from .forms import VeiculoForm, PecasForm, ServicosForm, OrdemForm
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic import FormView, DeleteView
@@ -212,3 +212,35 @@ class OrdemReadView(ListView):
     context_object_name = 'ordens'
     template_name = 'ordem/list.html'
     paginate_by = 10
+
+
+class OrdemCreateView(FormView):
+    form_class = OrdemForm
+    template_name = 'ordem/create.html'
+    success_url = '/ordens/'
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Ordem de Serviço adicionada.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Erro ao cadastrar a Ordem de Serviço.')
+        return super().form_invalid(form)
+
+
+class OrdemUpdateView(UpdateView):
+    model = OrdemDeServico
+    form_class = OrdemForm
+    template_name = 'ordem/edit.html'
+    success_url = reverse_lazy("ordem_list")
+    slug_field = 'ordem'
+    slug_url_kwarg = 'ordem'
+
+
+class OrdemDeleteView(DeleteView):
+    model = OrdemDeServico
+    template_name = 'ordem/delete.html'
+    success_url = reverse_lazy("ordem_list")
+    slug_field = 'ordem'
+    slug_url_kwarg = 'ordem'
