@@ -173,15 +173,6 @@ class VeiculosReadView(ListView):
     paginate_by = 10
 
 
-class OrdemReadView(ListView):
-
-    model = OrdemDeServico
-    ordering = ['-emitida']
-    context_object_name = 'ordens'
-    template_name = 'ordem/list.html'
-    paginate_by = 10
-
-
 class VeiculoCreateView(FormView):
     form_class = VeiculoForm
     template_name = 'veiculos/create.html'
@@ -197,6 +188,15 @@ class VeiculoCreateView(FormView):
         return super().form_invalid(form)
 
 
+class VeiculoUpdateView(UpdateView):
+    model = Veiculo
+    form_class = VeiculoForm
+    template_name = 'veiculos/edit.html'
+    success_url = reverse_lazy("veiculos_list")
+    slug_field = 'placa'
+    slug_url_kwarg = 'placa'
+
+
 class VeiculoDeleteView(DeleteView):
     model = Veiculo
     template_name = 'veiculos/delete.html'
@@ -205,10 +205,10 @@ class VeiculoDeleteView(DeleteView):
     slug_url_kwarg = 'placa'
 
 
-class VeiculoUpdateView(UpdateView):
-    model = Veiculo
-    form_class = VeiculoForm
-    template_name = 'veiculos/edit.html'
-    success_url = reverse_lazy("veiculos_list")
-    slug_field = 'placa'
-    slug_url_kwarg = 'placa'
+class OrdemReadView(ListView):
+
+    model = OrdemDeServico
+    ordering = ['-emitida']
+    context_object_name = 'ordens'
+    template_name = 'ordem/list.html'
+    paginate_by = 10

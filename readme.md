@@ -82,9 +82,9 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 #### Equipe
 
 - [x] Exibir Equipe
-- [ ] Criar Equipe
-- [ ] Atualizar Equipe
-- [ ] Excluir Equipe
+- [x] Criar Equipe
+- [x] Atualizar Equipe
+- [x] Excluir Equipe
 
 #### Ordem de Serviço
 

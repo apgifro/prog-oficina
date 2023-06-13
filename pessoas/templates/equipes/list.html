@@ -15,7 +15,9 @@
     <strong class="fs-3">Equipes</strong>
   </div>
   <div class="col">
-    <button type="button" class="btn btn-primary float-end">Adicionar</button>
+    <a href="{% url 'equipes_criar' %}" class="btn btn-primary float-end">
+      Adicionar</a>
+    </a>
   </div>
 </div>
 
@@ -30,11 +32,11 @@
       <th scope="col">
         <div class="d-flex flex-row justify-content-end">
 
-          <a href="#" class="nav-link link-primary me-3" aria-current="page">
+          <a href="{% url 'equipes_atualizar' equipe.pk %}" class="nav-link link-primary me-3" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#pencil"/></svg>
           </a>
 
-          <a href="#" class="nav-link link-danger" aria-current="page">
+          <a href="{% url 'equipes_excluir' equipe.pk %}" class="nav-link link-danger" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#delete"/></svg>
           </a>
 

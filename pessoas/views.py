@@ -1,9 +1,9 @@
 from django.urls import reverse_lazy
-from django.views.generic import FormView, DeleteView
+from django.views.generic import FormView, DeleteView, UpdateView
 
 from django.views.generic.list import ListView
 
-from pessoas.forms import ClienteForm, MecanicoForm
+from pessoas.forms import ClienteForm, MecanicoForm, EquipeForm
 from pessoas.models import Cliente, Mecanico, Equipe, Pessoa, Endereco
 
 from django.contrib import messages
@@ -233,5 +233,36 @@ class EquipeListView(ListView):
     context_object_name = 'equipes'
     ordering = ['-id']
     template_name = 'equipes/list.html'
-    paginate_by = 20
+    paginate_by = 10
 
+
+class EquipeCreateView(FormView):
+    form_class = EquipeForm
+    template_name = 'equipes/create.html'
+    success_url = '/equipes/'
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Equipe adicionada.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Erro ao cadastrar a equipe.')
+        return super().form_invalid(form)
+
+
+class EquipeUpdateView(UpdateView):
+    model = Equipe
+    form_class = EquipeForm
+    template_name = 'equipes/edit.html'
+    success_url = reverse_lazy("equipes_list")
+    slug_field = 'pk'
+    slug_url_kwarg = 'pk'
+
+
+class EquipeDeleteView(DeleteView):
+    model = Equipe
+    template_name = 'equipes/delete.html'
+    success_url = reverse_lazy("equipes_list")
+    slug_field = 'pk'
+    slug_url_kwarg = 'pk'
