@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Endereco
 
 class ClienteForm(forms.Form):
 
@@ -12,4 +12,4 @@ class ClienteForm(forms.Form):
     numero = forms.IntegerField()
     complemento = forms.CharField(max_length=255, required=False)
     cidade = forms.CharField(max_length=255)
-    estado = forms.CharField(max_length=2)
+    estado = forms.ChoiceField(choices=Endereco.estados, initial='RO', widget=forms.Select(attrs={'class': 'form-control'}))
