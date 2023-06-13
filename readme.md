@@ -58,13 +58,6 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [x] Atualizar Mecânico
 - [x] Excluir Mecânico
 
-#### Equipe
-
-- [x] Exibir Equipe
-- [ ] Criar Equipe
-- [ ] Atualizar Equipe
-- [ ] Excluir Equipe
-
 #### Peças
 
 - [x] Exibir Peças
@@ -86,12 +79,24 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 - [x] Atualizar Veículos
 - [x] Excluir Veículos
 
+#### Equipe
+
+- [x] Exibir Equipe
+- [ ] Criar Equipe
+- [ ] Atualizar Equipe
+- [ ] Excluir Equipe
+
 #### Ordem de Serviço
 
 - [x] Exibir Ordem de Serviço
 - [ ] Criar Ordem de Serviço
 - [ ] Atualizar Ordem de Serviço
 - [ ] Excluir Ordem de Serviço
+
+
+### Usuários
+
+- [] Implementar usuários e gerentes
 
 ### Completo
 
