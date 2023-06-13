@@ -54,9 +54,9 @@ Observação: não envie os arquivos de `migrations`, `.idea/` ou `db.sqlite`
 #### Mecânico
 
 - [x] Exibir Mecânico
-- [ ] Criar Mecânico
-- [ ] Atualizar Mecânico
-- [ ] Excluir Mecânico
+- [x] Criar Mecânico
+- [x] Atualizar Mecânico
+- [x] Excluir Mecânico
 
 #### Equipe
 

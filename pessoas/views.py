@@ -3,10 +3,19 @@ from django.views.generic import FormView, DeleteView
 
 from django.views.generic.list import ListView
 
-from pessoas.forms import ClienteForm
+from pessoas.forms import ClienteForm, MecanicoForm
 from pessoas.models import Cliente, Mecanico, Equipe, Pessoa, Endereco
 
 from django.contrib import messages
+
+
+class ClienteReadView(ListView):
+
+    model = Cliente
+    ordering = ['-pessoa_id']
+    context_object_name = 'clientes'
+    template_name = 'cliente/list.html'
+    paginate_by = 10
 
 
 class ClienteCreateView(FormView):
@@ -42,15 +51,6 @@ class ClienteCreateView(FormView):
         messages.error(self.request, 'Erro ao cadastrar o cliente.')
         print(form.errors)
         return super().form_invalid(form)
-
-
-class ClienteReadView(ListView):
-
-    model = Cliente
-    ordering = ['-pessoa_id']
-    context_object_name = 'clientes'
-    template_name = 'cliente/list.html'
-    paginate_by = 10
 
 
 class ClienteUpdateView(FormView):
@@ -125,6 +125,106 @@ class MecanicoListView(ListView):
     context_object_name = 'mecanicos'
     template_name = 'mecanico/list.html'
     paginate_by = 20
+
+
+class MecanicoCreateView(FormView):
+    form_class = MecanicoForm
+    template_name = 'mecanico/create.html'
+    success_url = '/mecanicos/'
+
+    def form_valid(self, form):
+        nome = form.cleaned_data['nome']
+        especialidade = form.cleaned_data['especialidade']
+
+        cep = form.cleaned_data['cep']
+        rua = form.cleaned_data['rua']
+        bairro = form.cleaned_data['bairro']
+        numero = form.cleaned_data['numero']
+        complemento = form.cleaned_data['complemento']
+        cidade = form.cleaned_data['cidade']
+        estado = form.cleaned_data['estado']
+
+        endereco = Endereco(
+            cep=cep, rua=rua, bairro=bairro, numero=numero,
+            complemento=complemento, cidade=cidade, estado=estado
+        )
+        endereco.save()
+        pessoa = Pessoa(nome=nome, endereco=endereco)
+        pessoa.save()
+        mecanico = Cliente(pessoa=pessoa, especialidade=especialidade)
+        mecanico.save()
+        messages.success(self.request, 'Mecânico adicionado.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Erro ao cadastrar o mecânico.')
+        print(form.errors)
+        return super().form_invalid(form)
+
+
+class MecanicoUpdateView(FormView):
+    form_class = MecanicoForm
+    template_name = 'mecanico/edit.html'
+    success_url = '/mecanicos/'
+
+    def get_mecanico(self, id_post):
+        try:
+            return Mecanico.objects.get(pk=id_post)
+        except Mecanico.DoesNotExist:
+            messages.error(self.request, 'O mecânico não existe!')
+            reverse_lazy('mecanicos_list')
+
+    def get_context_data(self, **kwargs):
+        context = super(MecanicoUpdateView, self).get_context_data(**kwargs)
+        context['mecanico'] = self.get_mecanico(self.kwargs['pk'])
+        self.initial['estado'] = context['mecanico'].pessoa.endereco.estado # BUG
+        return context
+
+    def form_valid(self, form):
+        nome = form.cleaned_data['nome']
+        especialidade = form.cleaned_data['especialidade']
+
+        cep = form.cleaned_data['cep']
+        rua = form.cleaned_data['rua']
+        bairro = form.cleaned_data['bairro']
+        numero = form.cleaned_data['numero']
+        complemento = form.cleaned_data['complemento']
+        cidade = form.cleaned_data['cidade']
+        estado = form.cleaned_data['estado']
+
+        mecanico = self.get_context_data()['mecanico']
+        endereco = mecanico.pessoa.endereco
+
+        endereco.cep = cep
+        endereco.rua = rua
+        endereco.bairro = bairro
+        endereco.numero = numero
+        endereco.complemento = complemento
+        endereco.cidade = cidade
+        endereco.estado = estado
+        endereco.save()
+
+        pessoa = mecanico.pessoa
+        pessoa.nome = nome
+        pessoa.save()
+
+        mecanico.especialidade = especialidade
+        mecanico.pessoa = pessoa
+        mecanico.save()
+
+        messages.success(self.request, 'Mecânico atualizado.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Erro ao atualizar o mecânico.')
+        print(form.errors)
+        return super().form_invalid(form)
+
+
+class MecanicoDeleteView(DeleteView):
+    model = Mecanico
+    template_name = 'mecanico/delete.html'
+    success_url = reverse_lazy("mecanicos_list")
 
 
 class EquipeListView(ListView):

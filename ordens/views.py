@@ -127,7 +127,7 @@ class ServicosUpdateView(FormView):
     def get_servico(self, id_post):
         try:
             return Servico.objects.get(pk=id_post)
-        except Peca.DoesNotExist:
+        except Servico.DoesNotExist:
             messages.error(self.request, 'O serviço não existe!')
             reverse_lazy('pecas_list')
 

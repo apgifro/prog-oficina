@@ -15,7 +15,9 @@
     <strong class="fs-3">Mecânicos</strong>
   </div>
   <div class="col">
-    <button type="button" class="btn btn-primary float-end">Adicionar</button>
+    <a href="{% url 'mecanicos_criar' %}" class="btn btn-primary float-end">
+      Adicionar</a>
+    </a>
   </div>
 </div>
 
@@ -43,11 +45,11 @@
       <td scope="col">
         <div class="d-flex flex-row justify-content-end">
 
-          <a href="#" class="nav-link link-primary me-3" aria-current="page">
+          <a href="{% url 'mecanicos_atualizar' mecanico.pk %}" class="nav-link link-primary me-3" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#pencil"/></svg>
           </a>
 
-          <a href="#" class="nav-link link-danger" aria-current="page">
+          <a href="{% url 'mecanicos_excluir' mecanico.pk %}" class="nav-link link-danger" aria-current="page">
             <svg class="bi pe-none me-2" width="20" height="20"><use xlink:href="#delete"/></svg>
           </a>
 

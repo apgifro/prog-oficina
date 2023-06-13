@@ -14,3 +14,17 @@ class ClienteForm(forms.Form):
     complemento = forms.CharField(max_length=255, required=False)
     cidade = forms.CharField(max_length=255)
     estado = forms.ChoiceField(choices=Endereco.estados, widget=forms.Select(attrs={'class': 'form-control'}))
+
+
+class MecanicoForm(forms.Form):
+
+    nome = forms.CharField(max_length=255)
+    especialidade = forms.CharField(max_length=255)
+
+    cep = forms.IntegerField()
+    rua = forms.CharField(max_length=255)
+    bairro = forms.CharField(max_length=255)
+    numero = forms.IntegerField()
+    complemento = forms.CharField(max_length=255, required=False)
+    cidade = forms.CharField(max_length=255)
+    estado = forms.ChoiceField(choices=Endereco.estados, widget=forms.Select(attrs={'class': 'form-control'}))
