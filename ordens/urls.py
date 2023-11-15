@@ -2,7 +2,7 @@ from django.urls import path
 
 from ordens.views import PecasReadView, ServicosReadView, VeiculoCreateView, VeiculoDeleteView, VeiculosReadView, \
     OrdemReadView, VeiculoUpdateView, PecasCreateView, PecasUpdateView, PecasDeleteView, ServicosCreateView, \
-    ServicosUpdateView, ServicosDeleteView, OrdemCreateView, OrdemUpdateView, OrdemDeleteView
+    ServicosUpdateView, ServicosDeleteView, OrdemCreateView, OrdemUpdateView, OrdemDeleteView, OrdemPdfView
 
 urlpatterns = [
     path("pecas/", PecasReadView.as_view(), name="pecas_list"),
@@ -21,6 +21,7 @@ urlpatterns = [
     path('veiculos/<str:placa>/delete/', VeiculoDeleteView.as_view(), name='veiculo_delete'),
 
     path("ordens/", OrdemReadView.as_view(), name="ordem_list"),
+    path("ordens/pdf/", OrdemPdfView.as_view(), name="ordem_pdf"),
     path("ordens/criar", OrdemCreateView.as_view(), name="ordem_criar"),
     path("ordens/editar/<int:pk>", OrdemUpdateView.as_view(), name="ordem_atualizar"),
     path("ordens/excluir/<int:pk>", OrdemDeleteView.as_view(), name="ordem_excluir"),

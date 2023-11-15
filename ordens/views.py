@@ -1,3 +1,5 @@
+from django.views import View
+
 from ordens.models import Peca, Servico, Veiculo, OrdemDeServico, Item
 
 from django.views.generic.edit import UpdateView
@@ -7,6 +9,15 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic import FormView, DeleteView
 
+from .utils import GeraPdfMixin
+
+
+class OrdemPdfView(View, GeraPdfMixin):
+
+    def get(self, request):
+        ordens = OrdemDeServico.objects.all()
+        ctx = {'ordens': ordens}
+        return self.render_to_pdf('pdf.html', ctx)
 
 class PecasReadView(ListView):
 

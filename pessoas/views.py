@@ -151,7 +151,7 @@ class MecanicoCreateView(FormView):
         endereco.save()
         pessoa = Pessoa(nome=nome, endereco=endereco)
         pessoa.save()
-        mecanico = Cliente(pessoa=pessoa, especialidade=especialidade)
+        mecanico = Mecanico(pessoa=pessoa, especialidade=especialidade)
         mecanico.save()
         messages.success(self.request, 'Mecânico adicionado.')
         return super().form_valid(form)
