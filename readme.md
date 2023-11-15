@@ -7,7 +7,11 @@ Alexandre e Makalister.
 
 ## Imagens
 
-### Gerar relatório
+### Chat com Ajax
+
+https://github.com/apgifro/prog-oficina/assets/115172423/f2820654-32f4-4fa0-bdd3-0ac771c06135
+
+### Gerar relatório em PDF
 
 ![](/readme/13.png)
 
